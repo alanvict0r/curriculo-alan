@@ -1,0 +1,48 @@
+<section class="contato" aria-label="Informações de Contato">
+  <div class="contato__header">
+    <h2 class="contato__titulo">Vamos Conversar?</h2>
+    <p class="contato__subtitulo">
+      Estou sempre aberto a novas oportunidades, colaborações e trocas de aprendizado na área de tecnologia.
+    </p>
+  </div>
+
+  <div class="contato__acoes">
+    <!-- Botão de Copiar E-mail com Feedback Visual -->
+    <button
+      type="button"
+      class="contato__btn contato__btn--copiar"
+      [class.contato__btn--copiado]="copiado()"
+      (click)="copiarEmail()"
+      [attr.aria-label]="copiado() ? 'E-mail copiado com sucesso' : 'Copiar endereço de e-mail'">
+      @if (copiado()) {
+        <span class="contato__feedback">✓ E-mail Copiado!</span>
+      } @else {
+        <span>📋 {{ email() }}</span>
+      }
+    </button>
+
+    <!-- Botão Direto para o WhatsApp -->
+    <a
+      class="contato__btn contato__btn--whatsapp"
+      [href]="whatsappUrl()"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir conversa no WhatsApp com Alan Victor">
+      <span>💬 Chamar no WhatsApp</span>
+    </a>
+
+    <!-- Link para o GitHub -->
+    <a
+      class="contato__btn contato__btn--github"
+      [href]="githubUrl()"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Acessar o perfil de Alan Victor no GitHub">
+      <span>🐙 GitHub</span>
+    </a>
+  </div>
+
+  <footer class="contato__rodape">
+    <p>© 2026 Alan Victor · Desenvolvido com Angular 22 & SCSS</p>
+  </footer>
+</section>

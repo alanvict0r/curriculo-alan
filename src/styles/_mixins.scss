@@ -1,0 +1,44 @@
+// ─── MIXINS UTILITÁRIOS GLOBAIS ─────────────────────────────
+
+// 1. Efeito Glassmorphism (Vidro Fosco / Translúcido)
+// Cria a ilusão de um cartão de vidro sobre o fundo escuro
+@mixin glass($blur: 16px, $opacity: 0.05) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid var(--border-color);
+}
+
+// 2. Breakpoints de Responsividade (Mobile-First)
+// Escrevemos o estilo base para celular e usamos estes mixins para telas maiores
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+// 3. Truncate de Texto (evita que textos longos quebrem o layout)
+@mixin text-truncate($lines: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if $lines == 1 {
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}

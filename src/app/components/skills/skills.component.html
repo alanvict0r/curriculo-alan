@@ -1,0 +1,32 @@
+<section class="skills" aria-label="Habilidades Técnicas">
+  <div class="skills__header">
+    <h2 class="skills__titulo">Habilidades Técnicas</h2>
+    <span class="skills__contador">{{ skillsFiltradas().length }} tecnologia(s)</span>
+  </div>
+
+  <!-- Botões de Filtro Interativo -->
+  <div class="skills__filtros" role="tablist" aria-label="Filtrar por categoria">
+    @for (cat of categorias(); track cat) {
+      <button
+        type="button"
+        class="skills__filtro-btn"
+        [class.skills__filtro-btn--ativo]="filtroAtivo() === cat"
+        (click)="setFiltro(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <!-- Lista de Tags / Pills -->
+  <div class="skills__lista">
+    @for (skill of skillsFiltradas(); track skill.nome) {
+      <div class="skills__pill">
+        <span class="skills__pill-dot"></span>
+        <span class="skills__pill-nome">{{ skill.nome }}</span>
+        <span class="skills__pill-categoria">{{ skill.categoria }}</span>
+      </div>
+    } @empty {
+      <p class="skills__vazio">Nenhuma habilidade cadastrada nesta categoria.</p>
+    }
+  </div>
+</section>

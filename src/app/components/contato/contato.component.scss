@@ -1,0 +1,113 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  animation: fadeInUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.contato {
+  @include glass(20px, 0.05);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  text-align: center;
+  transition: box-shadow var(--transition-normal);
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  &__titulo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  &__subtitulo {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: var(--space-xs) auto 0;
+    line-height: 1.5;
+  }
+
+  &__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-body);
+    transition: all var(--transition-fast);
+
+    // Botão de Copiar E-mail
+    &--copiar {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+
+      &:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+    }
+
+    // Estado quando o e-mail foi copiado com sucesso!
+    &--copiado {
+      background: rgba(0, 210, 255, 0.15) !important;
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    // Botão do WhatsApp
+    &--whatsapp {
+      background: rgba(37, 211, 102, 0.1);
+      border-color: rgba(37, 211, 102, 0.3);
+      color: #25d366;
+
+      &:hover {
+        background: #25d366;
+        color: #0a0a0f;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+      }
+    }
+
+    // Botão do GitHub
+    &--github {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+
+      &:hover {
+        border-color: var(--text-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  &__rodape {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-md);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+  }
+}

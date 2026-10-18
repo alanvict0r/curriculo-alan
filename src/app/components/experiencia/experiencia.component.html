@@ -1,0 +1,21 @@
+<section class="experiencia" aria-label="Trajetória e Formação">
+  <div class="experiencia__header">
+    <h2 class="experiencia__titulo">Trajetória & Formação</h2>
+    <span class="experiencia__subtitulo">Marcos Acadêmicos & Projetos</span>
+  </div>
+
+  <div class="experiencia__grid">
+    @for (exp of experiencias(); track exp.id) {
+      <article class="experiencia__card">
+        <div class="experiencia__card-topo">
+          <time class="experiencia__card-periodo">{{ exp.periodo }}</time>
+          <span class="experiencia__card-badge">{{ exp.badge }}</span>
+        </div>
+
+        <h3 class="experiencia__card-titulo">{{ exp.titulo }}</h3>
+        <h4 class="experiencia__card-instituicao">{{ exp.instituicao }}</h4>
+        <p class="experiencia__card-descricao">{{ exp.descricao }}</p>
+      </article>
+    }
+  </div>
+</section>

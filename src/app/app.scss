@@ -1,0 +1,30 @@
+.app-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+// ─── ANIMAÇÕES ESCALONADAS (CASCATA SUAVE) ───────────────────
+app-theme-toggle {
+  animation-delay: 0s;
+}
+
+app-hero {
+  animation-delay: 0.08s;
+}
+
+app-skills {
+  animation-delay: 0.18s;
+}
+
+app-experiencia {
+  animation-delay: 0.28s;
+}
+
+app-contato {
+  animation-delay: 0.38s;
+}

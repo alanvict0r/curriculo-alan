@@ -1,0 +1,13 @@
+<div class="theme-bar">
+  <button
+    type="button"
+    class="theme-toggle"
+    (click)="alternarTema()"
+    [attr.aria-label]="temaAtual() === 'dark' ? 'Alternar para Modo Claro' : 'Alternar para Modo Escuro'">
+    @if (temaAtual() === 'dark') {
+      <span class="theme-toggle__label">☀️ Modo Claro</span>
+    } @else {
+      <span class="theme-toggle__label">🌙 Modo Escuro</span>
+    }
+  </button>
+</div>
